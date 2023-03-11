@@ -15,7 +15,6 @@
 #include "bmp3.h"
 #include "neural_nets.h"
 
-
 // new limits for force sensors
 #define FT_MIN -20.0f
 #define FT_MAX 20.0f 
@@ -47,12 +46,12 @@ DigitalOut bit13(PC_14);
 DigitalOut bit23(PC_15);
 
 // initialize neural net structs
-extern NeuralNet sensor28;
-extern NeuralNet sensor31;
+extern NeuralNet sensorC5;
+extern NeuralNet sensorC6;
 
 // initialize force sensors on each channel with corresponding neural net model
-ForceSensor channel1(1, &sensor28); 
-ForceSensor channel2(2, &sensor31); 
+ForceSensor channel1(1, &sensorC5); 
+ForceSensor channel2(2, &sensorC6); 
 
 // setup for state machine and sensor interrupts
 volatile int state = REST_MODE;
@@ -101,12 +100,9 @@ void serial_interrupt(void){
         }  
     }
 }
-
        
 int main() {
 
-    
-    
     pc.baud(115200);                                                            // set serial baud rate
     wait(.01);
         
