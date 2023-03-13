@@ -46,12 +46,12 @@ DigitalOut bit13(PC_14);
 DigitalOut bit23(PC_15);
 
 // initialize neural net structs
-extern NeuralNet sensorC5;
-extern NeuralNet sensorC6;
+extern NeuralNet sensor31;
+// extern NeuralNet sensorC2;
 
 // initialize force sensors on each channel with corresponding neural net model
-ForceSensor channel1(1, &sensorC5); 
-ForceSensor channel2(2, &sensorC6); 
+ForceSensor channel1(1, &sensor31); 
+ForceSensor channel2(2, &sensor31); 
 
 // setup for state machine and sensor interrupts
 volatile int state = REST_MODE;
